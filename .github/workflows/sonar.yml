@@ -17,12 +17,12 @@ jobs:
         run: npm ci
       - name: Testing in production with coverage
         run: npm run test:prod #Ejecuta los tests que hayamos hecho desde el servidor.
-        working-directory: 'backend/dist'
+        working-directory: 'backend'
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN2 }} # Needed to get PR information, if any
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN2 }}
           projectBaseDir: 'backend'
 
